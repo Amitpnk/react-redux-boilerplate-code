@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import TextInput from "../common/TextInput";
 import SelectInput from "../common/SelectInput";
 
-const CourseForm = ({
-    course,
-    authors,
+const CustomerForm = ({
+    customer,
+    locations,
     onSave,
     onChange,
     saving = false,
@@ -13,7 +13,7 @@ const CourseForm = ({
 }) => {
     return (
         <form onSubmit={onSave}>
-            <h2>{course.id ? "Edit" : "Add"} Course</h2>
+            <h2>{customer.id ? "Edit" : "Add"} Customer</h2>
             {errors.onSave && (
                 <div className="alert alert-danger" role="alert">
                     {errors.onSave}
@@ -22,28 +22,28 @@ const CourseForm = ({
             <TextInput
                 name="title"
                 label="Title"
-                value={course.title}
+                value={customer.title}
                 onChange={onChange}
                 error={errors.title}
             />
 
             <SelectInput
-                name="authorId"
-                label="Author"
-                value={course.authorId || ""}
-                defaultOption="Select Author"
-                options={authors.map(author => ({
-                    value: author.id,
-                    text: author.name
+                name="locationId"
+                label="Location"
+                value={customer.locationId || ""}
+                defaultOption="Select Location"
+                options={locations.map(location => ({
+                    value: location.id,
+                    text: location.name
                 }))}
                 onChange={onChange}
-                error={errors.author}
+                error={errors.location}
             />
 
             <TextInput
                 name="category"
                 label="Category"
-                value={course.category}
+                value={customer.category}
                 onChange={onChange}
                 error={errors.category}
             />
@@ -55,13 +55,13 @@ const CourseForm = ({
     );
 };
 
-CourseForm.propTypes = {
-    authors: PropTypes.array.isRequired,
-    course: PropTypes.object.isRequired,
+CustomerForm.propTypes = {
+    locations: PropTypes.array.isRequired,
+    customer: PropTypes.object.isRequired,
     errors: PropTypes.object,
     onSave: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     saving: PropTypes.bool
 };
 
-export default CourseForm;
+export default CustomerForm;

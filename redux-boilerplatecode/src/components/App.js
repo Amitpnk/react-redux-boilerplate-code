@@ -5,8 +5,8 @@ import HomePage from "./home/HomePage";
 import AboutPage from "./about/AboutPage";
 import Header from "./common/Header";
 import PageNotFound from "./PageNotFound";
-import CoursesPage from "./courses/CoursesPage";
-import ManageCoursePage from "./courses/ManageCoursePage";
+import CustomersPage from "./customers/CustomersPage";
+import ManageCustomerPage from "./customers/ManageCustomerPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -17,9 +17,9 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/about" component={AboutPage} />
-        <Route exact path="/courses" component={CoursesPage} />
-        <Route exact path="/course/:slug" component={ManageCoursePage} />
-        <Route exact path="/course" component={ManageCoursePage} />
+        <Route exact path="/customers" component={CustomersPage} />
+        <Route exact path="/customer/:slug" component={ManageCustomerPage} />
+        <Route exact path="/customer" component={ManageCustomerPage} />
         <Route exact component={PageNotFound} />
       </Switch>
       <ToastContainer autoClose={3000} hideProgressBar />
