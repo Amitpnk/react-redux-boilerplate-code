@@ -24,7 +24,9 @@
     "start:api": "node tools/apiServer.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:ci": "ng build --prod --base-href /react-redux-boilerplate-code/",
+    "xpostbuild:ci": "xcopy \"./dist/sample/index.html\" \"./dist/sample/404.html\" /Y /F"
   },
   "eslintConfig": {
     "extends": "react-app"
