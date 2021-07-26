@@ -49,7 +49,7 @@ server.post("/customers/", function (req, res, next) {
   if (error) {
     res.status(400).send(error);
   } else {
-    req.body.slug = createSlug(req.body.title); // Generate a slug for new customers.
+    req.body.custId = createCustId(req.body.code); // Generate a custId for new customers.
     next();
   }
 });
@@ -65,8 +65,8 @@ server.listen(port, () => {
 
 // Centralized logic
 
-// Returns a URL friendly slug
-function createSlug(value) {
+// Returns a URL friendly custId
+function createCustId(value) {
   return value
     .replace(/[^a-z0-9_]+/gi, "-")
     .replace(/^-|-$/g, "")
@@ -74,8 +74,8 @@ function createSlug(value) {
 }
 
 function validateCustomer(customer) {
-  if (!customer.title) return "Title is required.";
+  if (!customer.code) return "Code is required.";
   if (!customer.locationId) return "Location is required.";
-  if (!customer.category) return "Category is required.";
+  if (!customer.name) return "Name is required.";
   return "";
 }

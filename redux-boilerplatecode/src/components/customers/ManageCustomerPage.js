@@ -9,9 +9,9 @@ import { toast } from "react-toastify";
 
 const newCustomer = {
     id: null,
-    title: "",
+    code: "",
     locationId: null,
-    category: ""
+    name: ""
 };
 
 function ManageCustomerPage({
@@ -50,12 +50,12 @@ function ManageCustomerPage({
         }));
     }
     function formIsValid() {
-        const { title, locationId, category } = customer;
+        const { code, locationId, name } = customer;
         const errors = {};
 
-        if (!title) errors.title = "Title is required.";
+        if (!code) errors.code = "Code is required.";
         if (!locationId) errors.location = "Location is required";
-        if (!category) errors.category = "Category is required";
+        if (!name) errors.name = "Name is required";
 
         setErrors(errors);
         // Form is valid if the errors object still has no properties
@@ -98,15 +98,15 @@ ManageCustomerPage.propTypes = {
     history: PropTypes.object.isRequired
 }
 
-export function getCustomerBySlug(customers, slug) {
-    return customers.find(customer => customer.slug === slug) || null;
+export function getCustomerByCustId(customers, custId) {
+    return customers.find(customer => customer.custId === custId) || null;
 }
 
 function mapStateToProps(state, ownProps) {
-    const slug = ownProps.match.params.slug;
+    const custId = ownProps.match.params.custId;
     const customer =
-        slug && state.customers.length > 0
-            ? getCustomerBySlug(state.customers, slug)
+        custId && state.customers.length > 0
+            ? getCustomerByCustId(state.customers, custId)
             : newCustomer;
     return {
         customer,

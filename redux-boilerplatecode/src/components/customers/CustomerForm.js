@@ -20,11 +20,11 @@ const CustomerForm = ({
                 </div>
             )}
             <TextInput
-                name="title"
-                label="Title"
-                value={customer.title}
+                name="code"
+                label="Code"
+                value={customer.code}
                 onChange={onChange}
-                error={errors.title}
+                error={errors.code}
             />
 
             <SelectInput
@@ -41,11 +41,11 @@ const CustomerForm = ({
             />
 
             <TextInput
-                name="category"
-                label="Category"
-                value={customer.category}
+                name="name"
+                label="Name"
+                value={customer.name}
                 onChange={onChange}
-                error={errors.category}
+                error={errors.name}
             />
 
             <button type="submit" disabled={saving} className="btn btn-primary">

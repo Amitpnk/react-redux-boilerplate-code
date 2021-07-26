@@ -7,9 +7,9 @@ const CustomerList = ({ customers, onDeleteClick }) => (
 		<thead>
 			<tr>
 				<th></th>
-				<th>Title</th>
+				<th>Code</th>
 				<th>Location</th>
-				<th>Category</th>
+				<th>Name</th>
 				<th />
 			</tr>
 		</thead>
@@ -17,20 +17,12 @@ const CustomerList = ({ customers, onDeleteClick }) => (
 			{customers.map((customer) => {
 				return (
 					<tr key={customer.id}>
+						<td>{customer.custId}</td>
 						<td>
-							{" "}
-							<a
-								className="btn btn-light"
-								href={"http://pluralsight.com/customers/" + customer.slug}
-							>
-								Watch
-							</a>
-						</td>
-						<td>
-							<Link to={"/customer/" + customer.slug}>{customer.title}</Link>
+							<Link to={"/customer/" + customer.custId}>{customer.code}</Link>
 						</td>
 						<td>{customer.locationName}</td>
-						<td>{customer.category}</td>
+						<td>{customer.name}</td>
 						<td>
 							<button
 								className="btn btn-outline-danger"
