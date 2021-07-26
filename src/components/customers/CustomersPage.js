@@ -44,19 +44,21 @@ class CustomersPage extends Component {
         console.log(this.props.loading)
         return (
             <>
-                {this.state.redirectToAddCustomerPage && <Redirect to="/customer"></Redirect>}
-                <h2>Customers</h2>
-                {this.props.loading ?
-                    <Spinner /> : (
-                        <> <button
-                            style={{ marginBottom: 20 }}
-                            className="btn btn-primary add-customer"
-                            onClick={() => this.setState({ redirectToAddCustomerPage: true })}
-                        >Add Customer</button>
+                <div className="container">
+                    {this.state.redirectToAddCustomerPage && <Redirect to="/customer"></Redirect>}
+                    <h2>Customers</h2>
+                    {this.props.loading ?
+                        <Spinner /> : (
+                            <> <button
+                                style={{ marginBottom: 20 }}
+                                className="btn btn-primary add-customer"
+                                onClick={() => this.setState({ redirectToAddCustomerPage: true })}
+                            >Add Customer</button>
 
-                            <CustomerList onDeleteClick={this.handleDeleteCustomer} customers={this.props.customers} />
-                        </>)
-                }
+                                <CustomerList onDeleteClick={this.handleDeleteCustomer} customers={this.props.customers} />
+                            </>)
+                    }
+                </div>
             </>
         )
     }

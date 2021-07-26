@@ -77,14 +77,16 @@ function ManageCustomerPage({
     return locations.length === 0 || customers.length === 0 ? (
         <Spinner />
     ) : (
-        <CustomerForm
-            customer={customer}
-            errors={errors}
-            locations={locations}
-            onChange={handleChange}
-            onSave={handleSave}
-            saving={saving}
-        />
+        <div className="container">
+            <CustomerForm
+                customer={customer}
+                errors={errors}
+                locations={locations}
+                onChange={handleChange}
+                onSave={handleSave}
+                saving={saving}
+            />
+        </div>
     )
 }
 
